@@ -4,11 +4,8 @@
 Manzalini Abitante, Malena
 > manzamale@gmail.com
 
-> [!NOTE]
-> Esta API nos permite listar, obtener, crear y editar canciones
-
 ***
-
+Esta API nos permite listar, obtener, crear y editar canciones
 ## ENDPOINTS
 | URL                       | VERBO         | CONTROLLER        | METODO        |  
 | -----------               | ----------    | ------------      |------------   |
@@ -64,6 +61,9 @@ Deberia devolver 200 en caso de OK, 400 si faltan datos, o 500 si hay un error a
 ![ejemplo postman requests](postman_ejemplo.png)
 
 ***
+
+> [!NOTE]
+> Nota
 
 > [!IMPORTANT]
 > AL TESTEAR CON POSTMAN TENER EN CUENTA que los IDs de canciones y artistas no estan "completos", osea que puede pasar que un numero (como el 1 o 2) no corresponda a ningun artista, muchos fueron borrados o editados...
