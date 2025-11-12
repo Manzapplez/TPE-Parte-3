@@ -3,16 +3,26 @@
 /* Procesa llamados del tipo "api/recurso/:params", rutea según recurso y verbo.
 https://gitlab.com/unicen/Web2/livecoding2025/tandil/todo-list-rest/-/tree/main/libs/router */
 
-require_once 'libs/router.php';
+require_once 'libs/router/router.php';
+require_once 'libs/jwt/jwt.php';
+require_once 'libs/jwt/jwt.middleware.php';
+require_once 'app/middlewares/guard-api.middleware.php';
 require_once 'app/controllers/ApiSongController.php';
+require_once 'app/controllers/ApiAuthController.php';
 
 # Se instancia el Router
 $router = new Router();
 
-# Se definen las rutas con el método addRoute
+$router->addMiddleware(new JWTMiddleware());
+
+# Se definen los endpoints con el método addRoute
 #                  resource          httpMethod     controller                  methodController
+$router->addRoute('auth/login',      'POST',        'ApiAuthController',        'login');
 $router->addRoute('songs',           'GET',         'ApiSongController',        'getSongs');
 $router->addRoute('songs/:id',       'GET',         'ApiSongController',        'getSong');
+
+# Necesitan TOKEN
+$router->addMiddleware(new GuardMiddleware());
 $router->addRoute('songs',           'POST',        'ApiSongController',        'addSong');
 $router->addRoute('songs/:id',       'PUT',         'ApiSongController',        'editSong');
 

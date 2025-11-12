@@ -12,6 +12,9 @@ abstract class Middleware extends Routable {
     public function match($url, $verb) {
         // Middleware always matches
         return true;
+
+        // Que siempre retorne true me estaba dando problemas,
+        // el JWTMiddleware se ejecutaba antes de todas las rutas inclusive las públicas
     }
 
     abstract public function run($request, $response);

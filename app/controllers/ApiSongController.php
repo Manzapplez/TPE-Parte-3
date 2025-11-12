@@ -44,20 +44,9 @@ class ApiSongController
             return $res->json(["error" => "Canción con id=$id no encontrada"], 404);
     }
 
-
-    // POST Y PUT: SI AGREGO EL TOKEN, TENGO Q VALIDARLO
-    // DEJO COMENTADA LA VALIDACION POSIBLE DEL AUTHORIZE
-
     # POST /songs
     public function addSong($req, $res)
     {
-
-        /*
-        $auth = $this->authorize();
-        if (!$auth)
-            return $res->json(["error" => "No autorizado"], 401);
-        */
-
         $body = $req->body;
 
         if (
@@ -82,18 +71,15 @@ class ApiSongController
     # PUT /songs/:id
     public function editSong($req, $res)
     {
-
-        /*
-        $auth = $this->authorize();
-        if (!$auth)
-            return $res->json(["error" => "No autorizado"], 401);
-        */
-
         $id = $req->params->id ?? null;
         $body = $req->body;
 
         if (!$id || !$body)
             return $res->json(["error" => "Datos incompletos"], 400);
+
+        $song = $this->model->getSong($id);
+        if (!$song)
+            return $res->json(["error" => "Canción con id=$id no encontrada"], 404);
 
         $success = $this->model->editSong(
             $id,

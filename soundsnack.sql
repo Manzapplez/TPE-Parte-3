@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2025 at 05:03 AM
+-- Generation Time: Nov 12, 2025 at 08:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -87,7 +87,9 @@ INSERT INTO `songs` (`id_song`, `id_artist`, `title`, `album`, `duration`, `genr
 (33, 4, 'Tu misterioso alguien', 'Miranda es imposible!', 4.08, '', 'https://youtu.be/ETJcV3rPO_U'),
 (34, 4, 'Me gustas tanto', 'Souvenir', 3.46, '', 'https://youtu.be/sqikoRiW7y0'),
 (35, 4, 'Fantasmas', 'Zafari', 3.37, '', ''),
-(36, 4, 'Extraño', 'Zafari', 3.59, '', '');
+(36, 4, 'Extraño', 'Zafari', 3.59, '', ''),
+(37, 6, 'Venus', 'Artpop', 3.53, '', ''),
+(38, 6, 'G.U.Y', 'Artpop', 0.00, '', '');
 
 -- --------------------------------------------------------
 
@@ -145,7 +147,7 @@ ALTER TABLE `artists`
 -- AUTO_INCREMENT for table `songs`
 --
 ALTER TABLE `songs`
-  MODIFY `id_song` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_song` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `users`
