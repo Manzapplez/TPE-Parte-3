@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2025 at 10:17 PM
+-- Generation Time: Nov 12, 2025 at 05:03 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -82,7 +82,12 @@ INSERT INTO `songs` (`id_song`, `id_artist`, `title`, `album`, `duration`, `genr
 (28, 16, 'This Is Why', 'This Is Why', 3.00, 'Rock alternativo, Post-punk, New wave, Dance punk,', 'https://youtu.be/xIYJ7VaSxYY'),
 (29, 17, 'Lion Heart', 'Lion Heart', 3.99, 'Pop', 'https://youtu.be/nVCubhQ454c'),
 (30, 17, 'Mister Mister', 'Mister Mister', 3.44, 'Pop', 'https://youtu.be/Z8j_XEn9b_8'),
-(31, 18, 'Sobredosis de TV', 'Soda Stereo', 4.11, 'New wave, post-punk', 'https://youtu.be/AtQSF-JVR7o');
+(31, 18, 'Sobredosis de TV', 'Soda Stereo', 4.11, 'New wave, post-punk', 'https://youtu.be/AtQSF-JVR7o'),
+(32, 4, 'Hola', 'El disco de tu corazón', 3.11, '', 'https://youtu.be/3vsLAXD_sd0'),
+(33, 4, 'Tu misterioso alguien', 'Miranda es imposible!', 4.08, '', 'https://youtu.be/ETJcV3rPO_U'),
+(34, 4, 'Me gustas tanto', 'Souvenir', 3.46, '', 'https://youtu.be/sqikoRiW7y0'),
+(35, 4, 'Fantasmas', 'Zafari', 3.37, '', ''),
+(36, 4, 'Extraño', 'Zafari', 3.59, '', '');
 
 -- --------------------------------------------------------
 
@@ -140,7 +145,7 @@ ALTER TABLE `artists`
 -- AUTO_INCREMENT for table `songs`
 --
 ALTER TABLE `songs`
-  MODIFY `id_song` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_song` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `users`
