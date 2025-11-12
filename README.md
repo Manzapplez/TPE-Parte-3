@@ -46,19 +46,35 @@ Debería devolver **200** en caso de OK, **400** si falta parámetro, **404** si
 ### 🎶 POST /api/auth/login
 > [!IMPORTANT]
 > Al realizar un `POST` o `PUT` de songs, tenemos que ingresar un `token`.</br>
-> Este token es generado cuando realizamos el request `auth/login` ingresando usuario (**webadmin**) y contraseña (**admin**) a través de Basic Auth
+> Este token es generado y devuelto en el body cuando realizamos el request `auth/login` ingresando usuario (**webadmin**) y contraseña (**admin**) a través de Basic Auth
+
 ![Basic Auth](imgs/basic_auth.png)
-Debería devolver un body con el token.
 
 > [!IMPORTANT]
 > Ya generado el `token`, seleccionamos `Bearer Token` en **Auth** para realizar altas o modificaciones en la tabla songs.
+
 ![Bearer Token](imgs/bearer_token.png)
 
 ### 🎶 POST /api/songs/
+Necesita el token generado en login.</br>
 **Crea** una nueva canción. Al ser un POST enviamos el request tiene body</br>
 
 La duración se indica en minutos y dos decimales, por ejemplo 3.55</br>
-duration, genre y video pueden ir null.
+> duration, genre y video pueden ir null.
+***
+Debería devolver **201** si se crea la canción, **400** si los datos están incompletos.</br>
+
+### 🎶 PUT /api/songs/:id
+Necesita el token generado en login.</br>
+Actualiza una canción existente. Al igual que POST, como hacemos PUT enviamos body<br>
+
+La duración se indica en minutos y dos decimales, por ejemplo 3.55</br>
+> duration, genre y video pueden ir null.
+
+Deberia devolver **200** en caso de OK, **400** si faltan datos, **404** si no se encontró la canción a editar, o **500** si hay un error al actualizar.
+***
+
+EJEMPLO **BODY** tanto para POST como para PUT
 ```
 {
   "id_artist": 4,
@@ -69,8 +85,3 @@ duration, genre y video pueden ir null.
   "video": ""
 }
 ```
-Debería devolver **201** si se crea la canción, **400** si los datos están incompletos.</br>
-
-### 🎶 PUT /api/songs/:id
-Actualiza una canción existente. Al igual que POST, como hacemos PUT enviamos body<br>
-Deberia devolver **200** en caso de OK, **400** si faltan datos, **404** si no se encontró la canción a editar, o **500** si hay un error al actualizar.
