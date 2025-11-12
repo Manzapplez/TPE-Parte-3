@@ -5,7 +5,7 @@ Manzalini Abitante, Malena
 > manzamale@gmail.com
 
 ***
-Esta API nos permite listar, obtener, crear y editar canciones
+Esta API nos permite listar, obtener, crear y editar canciones de artistas preexistentes.
 ## ENDPOINTS
 | URL                       | VERBO         | CONTROLLER        | METODO        |  
 | -----------               | ----------    | ------------      |------------   |
@@ -15,7 +15,7 @@ Esta API nos permite listar, obtener, crear y editar canciones
 | `api/songs/:id`           | PUT           | ApiSongController | editSong($id) |
 
 
-### GET /api/songs
+### 🎶 GET /api/songs
 Devuelve el listado de canciones, podemos ordenar, filtrar y paginar los resultados con query params.
 
 **Ejemplo de request:** obtener las canciones del artista con id=1, ordenadas por titulo de manera ascendente + mostrando 5 resultados por pagina desde la primera página</br>
@@ -30,13 +30,15 @@ Debería retornar un **JSON** con código **200**, o de no haber encontrado canc
 | `limit`   | Cantidad de resultados por página                                         | `?limit=10`      |
 | `page`    | Página actual (para paginación)                                           | `?page=2`        |
 
-***
-
-### GET /api/songs/:id
+### 🎶 GET /api/songs/:id
 Devuelve **una** canción dado su id, ejemplo `GET /api/songs/3`</br>
 Debería devolver 200 en caso de OK, 400 si falta parámetro, 404 si no fue encontrada.
 
-### POST /api/songs/
+
+> [!NOTE]
+>**TODO:** Token Auth, si lo agrego acá iría la explicación de cómo usar Basic Auth y Token en Postman + username y passwd a utilizar
+
+### 🎶 POST /api/songs/
 **Crea** una nueva canción. Al ser un POST enviamos el request tiene body</br>
 
 La duración se indica en minutos y dos decimales, por ejemplo 3.55</br>
@@ -53,7 +55,7 @@ genre y video pueden ir null.
 ```
 Debería devolver 201 si se crea la canción, 400 si los datos están incompletos.</br>
 
-### PUT /api/songs/:id
+### 🎶 PUT /api/songs/:id
 Edita/Actualiza una canción existente. Al igual que POST, como hacemos PUT enviamos body<br>
 Deberia devolver 200 en caso de OK, 400 si faltan datos, o 500 si hay un error al actualizar.
 
@@ -62,13 +64,8 @@ Deberia devolver 200 en caso de OK, 400 si faltan datos, o 500 si hay un error a
 
 ***
 
-> [!NOTE]
-> Nota
-
 > [!IMPORTANT]
-> AL TESTEAR CON POSTMAN TENER EN CUENTA que los IDs de canciones y artistas no estan "completos", osea que puede pasar que un numero (como el 1 o 2) no corresponda a ningun artista, muchos fueron borrados o editados...
-> No incluí views ya que tengo entendido que todo se testea con postman.
-> POR AHORA no requiere autenticación
+> AL TESTEAR CON POSTMAN TENER EN CUENTA que los IDs de canciones y artistas no estan "completos", osea que puede pasar que un numero (como el 1 o 2) no corresponda a ningun artista, muchos fueron borrados o editados. El id de artista con id **4** es el que tiene la mayor cantidad de canciones, yo utilicé ese principalmente para probar las funcionalidades
 
 ### TODO
 + TOKEN para realizar modificaciones (POST, PUT)
